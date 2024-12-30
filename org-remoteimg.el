@@ -199,6 +199,7 @@ Full credit goes to org-yt by Tobias Zawada for this function."
           (setq url-automatic-caching user-url-caching-setting))))))
 
 (advice-add #'org-display-inline-images :after #'org-display-user-inline-images)
+(advice-add #'org-link-preview-region :after #'org-display-user-inline-images) ;; org-display-inline-images is obsolete since org 9.8
 
 (org-link-set-parameters "http"  :image-data-fun #'org-remoteimg--fetch-image)
 (org-link-set-parameters "https" :image-data-fun #'org-remoteimg--fetch-image)
